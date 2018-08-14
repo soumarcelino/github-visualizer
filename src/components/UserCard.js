@@ -7,6 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Badge from '@material-ui/core/Badge';
+
 
 const styles = {
   card: {
@@ -15,7 +17,7 @@ const styles = {
   media: {
     height: 0,
     paddingTop: '100%'
-  },
+  }
 };
 
 function SimpleMediaCard(props) {
@@ -38,9 +40,23 @@ function SimpleMediaCard(props) {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" href={data.html_url} color="primary">
-            Visualizar perfil completo
-          </Button>
+
+          <Badge className={classes.margin} badgeContent={data.followers} color="primary">
+            <Button size="small"  color="primary">
+              Seguidores
+            </Button>
+          </Badge>
+          <Badge className={classes.margin} badgeContent={data.following} color="primary">
+            <Button size="small"  color="primary">
+              Seguindo
+            </Button>
+          </Badge>
+
+          <Button size="small" href={data.html_url} color="default">
+            Mais
+          </Button> 
+
+
         </CardActions>
       </Card>
     </div>
