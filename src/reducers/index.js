@@ -1,6 +1,6 @@
 
 const initialState = {
-    status : 'proccess',
+    status : 'LOGIN',
     token : '',
     user : {},
 }
@@ -22,7 +22,10 @@ export default function reducer(state = initialState , action){
         return {
           ...state,
           user : action.payload.user
-        }
+      }
+      case "LOGOUT" : 
+        return initialState
+        
       default : 
         return state;
     }

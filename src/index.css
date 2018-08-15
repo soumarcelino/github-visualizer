@@ -1,5 +1,6 @@
 body{
-   
+   padding: 0px;
+   margin: 0px;
 }
 
 .map {
@@ -11,5 +12,8 @@ body{
     height: 525px;
     width: 100%;
     margin: 0 auto;
+}
 
+.AppBar{
+    padding-bottom: 10px;
 }

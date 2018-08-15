@@ -32,8 +32,8 @@ function SimpleCard(props) {
   
   axios.get(`https://maps.google.com/maps/api/geocode/json?address=${data.location}`)
   .then(res => {
-    position = [res.data.results[0].geometry.location.lat, res.data.results[0].geometry.location.lng]
-    console.log(res.data.results[0].geometry.location)
+    //position = [res.data.results[0].geometry.location.lat, res.data.results[0].geometry.location.lng]
+    //console.log(res.data.results[0].geometry.location)
   })
 
   

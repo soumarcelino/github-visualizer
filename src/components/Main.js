@@ -3,11 +3,18 @@ import { Switch, Route } from 'react-router-dom'
 import Authorize from './Authorize';
 import ReturnAuthorize from './ReturnAuthorize';
 import SearchField from './SearchField';
-
-export default class Main extends React.Component {
-    render() {
+import MenuAppBar from './MenuAppBar'
+class Main extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      history : ""
+    }
+  }
+  render() {
         return (
           <main>
+            <Route component={MenuAppBar}/>
             <Switch>
               <Route exact path='/' component={Authorize}/>
               <Route path='/return-authorize' component={ReturnAuthorize}/>
@@ -17,3 +24,4 @@ export default class Main extends React.Component {
         )
     }
 }
+export default Main
