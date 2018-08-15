@@ -5,8 +5,8 @@ var client_id = "bts5feeef2f5sa5e";
 var cors = require('cors')
 var axios = require('axios')
 
-var client_id = "98658616ec76ab2c1974"
-var client_secret = "6a21d5a1167aedce98798e433d2a92d2723d4e07"
+var client_id = ""
+var client_secret = ""
 var state = "123"
 var redirect_uri = "http://localhost:3000/return-authorize"
 
