@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Badge from '@material-ui/core/Badge';
+import LocationIcon from '@material-ui/icons/LocationOn'
 
 
 const styles = {
@@ -38,6 +39,7 @@ function SimpleMediaCard(props) {
           <Typography component="p">
               {data.bio}
           </Typography>
+          {data.location && <div><LocationIcon/>{data.location}</div>}
         </CardContent>
         <CardActions>
 

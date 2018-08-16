@@ -10,10 +10,15 @@ import ViewCarousel from '@material-ui/icons/ViewCarousel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import { connect } from 'react-redux';
+import SearchIcon from '@material-ui/icons/Search';
+import ErrorIcon from '@material-ui/icons/ErrorOutline';
+import Button from '@material-ui/core/Button';
+import {searchUser} from "../actions"
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const styles = {
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   flex: {
     flexGrow: 1,
@@ -25,13 +30,28 @@ const styles = {
 };
 
 class MenuAppBar extends React.Component {
-  state = {
-    anchorEl: null,
-  };
+  constructor(props){
+    super(props);
+    this.state = {
+      anchorEl: null,
+      query : props.search.login
+    };
+  }
+
 
   handleMenu = event => {
     this.setState({ anchorEl: event.currentTarget });
   };
+
+  handleChange = event => {
+    this.setState({query: event.target.value});
+  }
+
+  handleSearch = event => {
+    event.preventDefault();
+    searchUser(this.state.query,this.props.token,this.props.dispatch)
+    this.props.dispatch({type : "SEARCH_USER" , payload : { query : this.state.query}})
+  }
 
   handleClose = () => {
     this.setState({ anchorEl: null });
@@ -40,7 +60,7 @@ class MenuAppBar extends React.Component {
   handleLogout = () => {
     this.setState({ anchorEl: null });
     this.props.dispatch({type : "LOGOUT"})
-    this.props.history.push("/");
+    this.props.history.push("/authorize");
     
   };
 
@@ -51,13 +71,41 @@ class MenuAppBar extends React.Component {
 
     return (
       <div className="AppBar">
-      <AppBar position="static">
-          <Toolbar>
+      <AppBar position="fixed" color="primary">
+          <Toolbar variant="dense">
             <Typography variant="title" color="inherit" className={classes.flex}>
-            <ViewCarousel/>  Github Visualizer
+              <ViewCarousel/>  Github Visualizer
             </Typography>
-            {this.props.user.login && (
-              <div>
+            {this.props.searchStatus === "NOT_FOUND" &&  <ErrorIcon style={{color : "#f57171", fontSize: 34}}/>}
+            {this.props.searchStatus === "LOADING" && <CircularProgress style={{ color: "#c1bfe5", marginRight:5 }} />}
+
+          {this.props.user.login && (<div style={{ display: "contents" }}>
+          
+              <form onSubmit={this.handleSearch}>
+                <input type = "text"
+                  className="inputSearch"
+                  value={this.state.query} onChange={this.handleChange}
+                  placeholder="Procurar usuário"
+                /> 
+                
+            
+                <Button
+                  type="submit"
+                  style={
+                    {
+                      color: "white",
+                      backgroundColor : "rgba(255, 255, 255, 0.21)",
+                      borderRadius: "0px 10px 10px 0px",
+                      marginTop : "-2px"
+                    }
+                  }
+                color="primary" className={classes.button}>
+                < SearchIcon />
+                </Button>
+
+            </form>
+          
+            
                 <IconButton
                   aria-owns={open ? 'menu-appbar' : null}
                   aria-haspopup="true"
@@ -84,8 +132,8 @@ class MenuAppBar extends React.Component {
                   <MenuItem onClick={this.handleClose}> Exibir perfil </MenuItem>
                   <MenuItem onClick={this.handleLogout}> Sair </MenuItem>
                 </Menu>
-              </div>
-            )}
+              </div>)}
+
           </Toolbar>
         </AppBar>
       </div>

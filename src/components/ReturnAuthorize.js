@@ -13,7 +13,7 @@ class ReturnAuthorize extends React.Component {
     render() {
         return (
             <div style={{textAlign : 'center',height : '50%'}}>
-            <img width={400} src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png"/>
+            <img width={400} alt="" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png"/>
              <Typography variant="headline" gutterBottom>
                 Um novo modo de visualização do seu GitHub
              </Typography>
