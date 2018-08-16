@@ -6,7 +6,7 @@ Uma nova forma de ver as informações de usuários e um mapa com sua localizaç
 
 ## Funcionamento
 
-Você precisa autorizar o Github Visualizer acessar algumas informações sua por meio da API go Github, depois disso você será direcionado a uma tela com um campo de busca, você poderá procurar por nome de usuários, ao pressionar enter ou clicar sobre o botão de busca será exibido um card com dados do usuário e outro com a localização do usuário procurado sobre um mapa.
+Você precisa autorizar o Github Visualizer acessar algumas informações sua por meio da API do Github, depois disso você será direcionado a uma tela com um campo de busca, você poderá procurar por nome de usuários, ao pressionar enter ou clicar sobre o botão de busca será exibido um card com dados do usuário e outro com a localização do usuário procurado sobre um mapa.
 
 ## Autorização
 A aplicação consome uma API do github e para isso utiliza OAuth para autenticação do usuário, para mais informações leia:  
