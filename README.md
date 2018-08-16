@@ -37,3 +37,15 @@ npm install
 npm install -g pm2
 pm2 start app.js
 ```
+Por fim basta executar:
+
+```sh
+npm start
+```
+Logo vai ter sua aplicação funcionando, mas se quiser colocar em produção vai ser necessário executar o comando:   
+
+```sh
+npm run build
+```
+
+Por meio desse comando é gerado uma pasta *build* onde vai ter a aplicação otimizada para produção
