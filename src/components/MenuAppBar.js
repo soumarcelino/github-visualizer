@@ -47,6 +47,14 @@ class MenuAppBar extends React.Component {
     this.setState({query: event.target.value});
   }
 
+  handlePerfil = event => {
+  
+    event.preventDefault();
+    this.setState({ anchorEl: null,query : this.props.user.login });
+    searchUser(this.props.user.login,this.props.token,this.props.dispatch)
+    this.props.dispatch({type : "SEARCH_USER" , payload : { query : this.props.user.login}})
+  }
+
   handleSearch = event => {
     event.preventDefault();
     searchUser(this.state.query,this.props.token,this.props.dispatch)
@@ -84,7 +92,7 @@ class MenuAppBar extends React.Component {
               <form onSubmit={this.handleSearch}>
                 <input type = "text"
                   className="inputSearch"
-                  value={this.state.query} onChange={this.handleChange}
+                  value={this.state.query || ""} onChange={this.handleChange}
                   placeholder="Procurar usuário"
                 /> 
                 
@@ -129,7 +137,7 @@ class MenuAppBar extends React.Component {
                   open={open}
                   onClose={this.handleClose}
                 >
-                  <MenuItem onClick={this.handleClose}> Exibir perfil </MenuItem>
+                  <MenuItem onClick={this.handlePerfil}> Exibir perfil </MenuItem>
                   <MenuItem onClick={this.handleLogout}> Sair </MenuItem>
                 </Menu>
               </div>)}
