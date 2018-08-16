@@ -1,5 +1,5 @@
     ## Features
-	  * Autorização do usuário com API do Github
+    * Autorização do usuário com API do Github
     *  Dashboard com informações do usuário Logado
     *  Busca de usuário
     *  Mapa com localização do usuário
