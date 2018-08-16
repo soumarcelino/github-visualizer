@@ -19,6 +19,7 @@ export const updateUser = (token,dispatch) => {
       axios.get(`https://api.github.com/user?${token}`)
       .then(function (response) {
           dispatch({type : "UPDATE_USER", payload : { user : response.data}})
+	  searchUserAPI(response.data.login,token,dispatch)
       })
       .catch(function (error) {
         console.log(error);
