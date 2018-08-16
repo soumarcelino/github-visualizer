@@ -7,8 +7,8 @@ var axios = require('axios')
 
 var client_id = ""
 var client_secret = ""
-var state = "123"
-var redirect_uri = "http://localhost:3000/return-authorize"
+var state = "hash"
+var redirect_uri = "http://201.49.15.60:8080/return-authorize"
 
 app.use(cors())
 app.use( bodyParser.json() ); // to support JSON-encoded bodies
