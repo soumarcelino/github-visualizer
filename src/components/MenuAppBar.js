@@ -84,7 +84,7 @@ class MenuAppBar extends React.Component {
             <Typography variant="title" color="inherit" className={classes.flex}>
               <ViewCarousel/>  Github Visualizer
             </Typography>
-            {this.props.searchStatus === "NOT_FOUND" &&  <ErrorIcon style={{color : "#f57171", fontSize: 34}}/>}
+            {(this.props.searchStatus === "NOT_FOUND" || this.props.searchStatus === "NO_LOCATION") &&  <ErrorIcon style={{color : "#f57171", fontSize: 34}}/>}
             {this.props.searchStatus === "LOADING" && <CircularProgress style={{ color: "#c1bfe5", marginRight:5 }} />}
 
           {this.props.user.login && (<div style={{ display: "contents" }}>
