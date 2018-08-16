@@ -11,7 +11,7 @@ export default class Authorize extends React.Component {
              Um novo modo de visualização do seu GitHub
             </Typography>
                 
-                <Button variant="contained" href="https://github.com/login/oauth/authorize?client_id=98658616ec76ab2c1974&redirect_uri=http://201.49.15.60:8080/return-authorize&state=123" color="primary" >
+                <Button variant="contained" href="https://github.com/login/oauth/authorize?client_id=98658616ec76ab2c1974&redirect_uri=http://201.49.15.60:8080/return-authorize&state=hash" color="primary" >
                     Autorizar
                 </Button>
                 
