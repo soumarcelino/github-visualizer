@@ -4,7 +4,7 @@ export const getTokenByCode = (props) => {
     let url = new URL(window.location.href);
     let code = url.searchParams.get("code");
     let state = url.searchParams.get("state");
-      axios.post('http://localhost:8080/getToken', { code,state })
+      axios.post('http://201.49.15.60:555/getToken', { code,state })
       .then(function (response) {
         props.dispatch({type: "UPDATE_TOKEN" , payload : { token: response.data }})
         updateUser(response.data,props.dispatch)
